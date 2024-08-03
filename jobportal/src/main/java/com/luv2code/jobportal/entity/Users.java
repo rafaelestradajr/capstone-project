@@ -3,6 +3,8 @@ package com.luv2code.jobportal.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -12,12 +14,16 @@ import java.util.Date;
 public class Users {
 
 
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
 
 
+    @Setter
+    @Getter
     @Column(unique = true, nullable = false)
     private String email;
 
@@ -27,9 +33,13 @@ public class Users {
 
     private boolean isActive;
 
+    @Setter
+    @Getter
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date registrationDate;
 
+    @Setter
+    @Getter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
 
@@ -47,22 +57,6 @@ public class Users {
         this.userTypeId = userTypeId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public @NotEmpty String getPassword() {
         return password;
     }
@@ -77,22 +71,6 @@ public class Users {
 
     public void setActive(boolean active) {
         isActive = active;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public UsersType getUserTypeId() {
-        return userTypeId;
-    }
-
-    public void setUserTypeId(UsersType userTypeId) {
-        this.userTypeId = userTypeId;
     }
 
     @Override
