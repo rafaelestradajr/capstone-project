@@ -10,19 +10,27 @@ import java.util.Date;
 
 @Entity
 public class JobPostActivity {
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer jobPostId;
 
+    @Setter
+    @Getter
     @ManyToOne
     @JoinColumn(name = "postedById", referencedColumnName = "userId")
     private Users postedById;
 
+    @Setter
+    @Getter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobLocationId", referencedColumnName = "Id")
     private JobLocation jobLocationID;
 
 
+    @Setter
+    @Getter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobCompanyId", referencedColumnName = "Id")
     private JobCompany jobCompanyId;
@@ -36,11 +44,21 @@ public class JobPostActivity {
     @Length(max = 10000)
     private String descriptionOfJob;
 
+    @Setter
+    @Getter
     private String jobType;
+    @Setter
+    @Getter
     private String salary;
+    @Setter
+    @Getter
     private String remote;
+    @Setter
+    @Getter
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date postedDate;
+    @Setter
+    @Getter
     private String jobTitle;
 
     public JobPostActivity() {
@@ -71,38 +89,6 @@ public class JobPostActivity {
         this.descriptionOfJob = descriptionOfJob;
     }
 
-    public Integer getJobPostId() {
-        return jobPostId;
-    }
-
-    public void setJobPostId(Integer jobPostId) {
-        this.jobPostId = jobPostId;
-    }
-
-    public Users getPostedById() {
-        return postedById;
-    }
-
-    public void setPostedById(Users postedById) {
-        this.postedById = postedById;
-    }
-
-    public JobLocation getJobLocationID() {
-        return jobLocationID;
-    }
-
-    public void setJobLocationID(JobLocation jobLocationID) {
-        this.jobLocationID = jobLocationID;
-    }
-
-    public JobCompany getJobCompanyId() {
-        return jobCompanyId;
-    }
-
-    public void setJobCompanyId(JobCompany jobCompanyId) {
-        this.jobCompanyId = jobCompanyId;
-    }
-
     public Boolean getActive() {
         return isActive;
     }
@@ -117,46 +103,6 @@ public class JobPostActivity {
 
     public void setSaved(Boolean saved) {
         isSaved = saved;
-    }
-
-    public String getJobType() {
-        return jobType;
-    }
-
-    public void setJobType(String jobType) {
-        this.jobType = jobType;
-    }
-
-    public String getSalary() {
-        return salary;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
-    }
-
-    public String getRemote() {
-        return remote;
-    }
-
-    public void setRemote(String remote) {
-        this.remote = remote;
-    }
-
-    public Date getPostedDate() {
-        return postedDate;
-    }
-
-    public void setPostedDate(Date postedDate) {
-        this.postedDate = postedDate;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
     }
 
     @Override
