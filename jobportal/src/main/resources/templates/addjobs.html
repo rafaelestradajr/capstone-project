@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 
-    <link th:rel="stylesheet" type="text/css" media="all" th:href="@{/summernote/summernote-lite.min.css}"/>
+<link th:rel="stylesheet" type="text/css" media="all" th:href="@{/summernote/summernote-lite.min.css}"/>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
     <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/font-awesome.min.css}" />
     <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" />
     <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/styles.css}" />
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Profile Setup</title>
 </head>
 
@@ -106,12 +106,14 @@
 <script type="text/javascript" th:src="@{/summernote/summernote-lite.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/main.js}"></script>
 
-<script>
-console.log($('#content'));
-    $('#content').summernote({
-        height: 100
-    });
-</script>
+
+
+   // console.log($('#content'));
+     // $('content').summernote({
+        //  height: 100
+      //});
+
+
 
 </body>
 </html>

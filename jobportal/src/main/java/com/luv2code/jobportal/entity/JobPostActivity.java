@@ -1,8 +1,6 @@
 package com.luv2code.jobportal.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,27 +8,19 @@ import java.util.Date;
 
 @Entity
 public class JobPostActivity {
-    @Setter
-    @Getter
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer jobPostId;
+    private Integer jobPostId;
 
-    @Setter
-    @Getter
     @ManyToOne
     @JoinColumn(name = "postedById", referencedColumnName = "userId")
     private Users postedById;
 
-    @Setter
-    @Getter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobLocationId", referencedColumnName = "Id")
-    private JobLocation jobLocationID;
+    private JobLocation jobLocationId;
 
-
-    @Setter
-    @Getter
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "jobCompanyId", referencedColumnName = "Id")
     private JobCompany jobCompanyId;
@@ -44,32 +34,21 @@ public class JobPostActivity {
     @Length(max = 10000)
     private String descriptionOfJob;
 
-    @Setter
-    @Getter
     private String jobType;
-    @Setter
-    @Getter
     private String salary;
-    @Setter
-    @Getter
     private String remote;
-    @Setter
-    @Getter
+
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date postedDate;
-    @Setter
-    @Getter
     private String jobTitle;
 
     public JobPostActivity() {
     }
 
-    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocationID, JobCompany jobCompanyId,
-                           Boolean isActive, Boolean isSaved, String descriptionOfJob, String jobType,
-                           String salary, String remote, Date postedDate, String jobTitle) {
+    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocationId, JobCompany jobCompanyId, Boolean isActive, Boolean isSaved, String descriptionOfJob, String jobType, String salary, String remote, Date postedDate, String jobTitle) {
         this.jobPostId = jobPostId;
         this.postedById = postedById;
-        this.jobLocationID = jobLocationID;
+        this.jobLocationId = jobLocationId;
         this.jobCompanyId = jobCompanyId;
         this.isActive = isActive;
         this.isSaved = isSaved;
@@ -81,12 +60,36 @@ public class JobPostActivity {
         this.jobTitle = jobTitle;
     }
 
-    public @Length(max = 10000) String getDescriptionOfJob() {
-        return descriptionOfJob;
+    public Integer getJobPostId() {
+        return jobPostId;
     }
 
-    public void setDescriptionOfJob(@Length(max = 10000) String descriptionOfJob) {
-        this.descriptionOfJob = descriptionOfJob;
+    public void setJobPostId(Integer jobPostId) {
+        this.jobPostId = jobPostId;
+    }
+
+    public Users getPostedById() {
+        return postedById;
+    }
+
+    public void setPostedById(Users postedById) {
+        this.postedById = postedById;
+    }
+
+    public JobLocation getJobLocationId() {
+        return jobLocationId;
+    }
+
+    public void setJobLocationId(JobLocation jobLocationId) {
+        this.jobLocationId = jobLocationId;
+    }
+
+    public JobCompany getJobCompanyId() {
+        return jobCompanyId;
+    }
+
+    public void setJobCompanyId(JobCompany jobCompanyId) {
+        this.jobCompanyId = jobCompanyId;
     }
 
     public Boolean getActive() {
@@ -105,12 +108,60 @@ public class JobPostActivity {
         isSaved = saved;
     }
 
+    public String getDescriptionOfJob() {
+        return descriptionOfJob;
+    }
+
+    public void setDescriptionOfJob(String descriptionOfJob) {
+        this.descriptionOfJob = descriptionOfJob;
+    }
+
+    public String getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getRemote() {
+        return remote;
+    }
+
+    public void setRemote(String remote) {
+        this.remote = remote;
+    }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
     @Override
     public String toString() {
         return "JobPostActivity{" +
                 "jobPostId=" + jobPostId +
                 ", postedById=" + postedById +
-                ", jobLocationID=" + jobLocationID +
+                ", jobLocationId=" + jobLocationId +
                 ", jobCompanyId=" + jobCompanyId +
                 ", isActive=" + isActive +
                 ", isSaved=" + isSaved +

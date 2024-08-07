@@ -15,11 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
 import java.util.List;
 
 @Controller
+
 public class JobPostActivityController {
     private final UsersService usersService;
     private final JobPostActivityService jobPostActivityService;
@@ -35,9 +37,10 @@ public class JobPostActivityController {
         Object currentUserProfile = usersService.getCurrentUserProfile();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (! (authentication instanceof AnonymousAuthenticationToken)){
+        if (!(authentication instanceof AnonymousAuthenticationToken)){
             String currentUsername = authentication.getName();
             model.addAttribute("username", currentUsername);
+
             if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("Recruiter"))){
              List<RecruiterJobsDto> recruiterJobs =   jobPostActivityService.getRecruiterJobs(((RecruiterProfile)
              currentUserProfile).getUserAccountId());
@@ -53,8 +56,7 @@ public class JobPostActivityController {
     public String addJobs(Model model) {
         model.addAttribute("jobPostActivity", new JobPostActivity());
         model.addAttribute("user", usersService.getCurrentUserProfile());
-
-        return "add-jobs";
+        return "addjobs";
 
     }
     @PostMapping("/dashboard/addNew")
@@ -66,7 +68,6 @@ public class JobPostActivityController {
         }
         jobPostActivity.setPostedDate(new Date());
         model.addAttribute("jobPostActivity", jobPostActivity);
-
        JobPostActivity saved = jobPostActivityService.addNew(jobPostActivity);
         return "redirect:/dashboard/";
 
