@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Dashboard</title>
+    <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -19,7 +20,7 @@
 <body>
 <header class="navbar navbar-expand-lg navbar-dark">
     <label class="mt-2 ms-5 font-weight-bold h5"
-    ><a th:href="@{/}">hotdevjobs</a
+    ><a th:href="@{/dashboard/}">hotdevjobs</a
     ><span class="logo_com font-weight-bold h5" style="color: white">
           .com</span
     ></label
@@ -106,7 +107,8 @@
                         style="text-decoration: none; color: black"
                 >
                     <div
-                            onclick="window.location=/job-details-apply/{id}(id=${jobPost.jobPostId})"
+                            onclick="window.location=/job-details-apply/
+                            {id}(id=${jobPost.jobPostId})"
                             class="job-row"
                     >
                         <div class="row">
