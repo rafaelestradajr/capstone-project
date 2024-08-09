@@ -47,9 +47,7 @@ public class UsersController {
        // System.out.println("User:: " +users);
 
         Optional<Users> optionalUsers = usersService.getUserByEmail((users.getEmail()));
-        if (optionalUsers.isPresent())
-        {
-
+        if (optionalUsers.isPresent()){
             model.addAttribute("error","This email already exists, try again or register with other email.");
             List<UsersType> usersTypes = usersTypeService.getAll();
             model.addAttribute("getAllTypes",usersTypes);
@@ -57,7 +55,7 @@ public class UsersController {
             return "register";
         }
         usersService.addNew(users);
-        return  "redirect:/dashboard";
+        return  "redirect:/dashboard/";
 
     }
     @GetMapping("/login")

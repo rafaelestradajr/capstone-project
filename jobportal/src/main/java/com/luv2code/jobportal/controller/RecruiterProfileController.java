@@ -77,6 +77,6 @@ private final RecruiterProfileService recruiterProfileService;
                 ex.printStackTrace();
             }
 
-            return "redirect:/dashboard";
+            return "redirect:/dashboard/";
     }
 }
