@@ -35,10 +35,12 @@ public class JobPostActivityController {
     private final JobSeekerSaveService jobSeekerSaveService;
 
     @Autowired
-    public JobPostActivityController(UsersService usersService, JobPostActivityService jobPostActivityService, JobSeekerApplyService jobSeekerApplyService) {
+    public JobPostActivityController(UsersService usersService, JobPostActivityService jobPostActivityService, JobSeekerApplyService jobSeekerApplyService,
+    JobSeekerSaveService jobSeekerSaveService) {
         this.usersService = usersService;
         this.jobPostActivityService = jobPostActivityService;
         this.jobSeekerApplyService = jobSeekerApplyService;
+        this.jobSeekerSaveService = jobSeekerSaveService;
     }
     @GetMapping("/dashboard/")
     public String searchJobs(Model model,
@@ -130,6 +132,35 @@ public class JobPostActivityController {
             List<JobSeekerSave> jobSeekerSaveList=   jobSeekerSaveService.getCandidatesJob((JobSeekerProfile)
                     currentUserProfile);
 
+            boolean exist;
+            boolean saved;
+
+            for(JobPostActivity jobActivity : jobPost){
+                exist = false;
+                saved = false;
+                for (JobSeekerApply jobSeekerApply : jobSeekerApplyList){
+                    if (Objects.equals(jobActivity.getJobPostId(), jobSeekerApply.getJob().getJobPostId())){
+                        jobActivity.setIsActive(true);
+                        saved = true;
+                        break;
+                    }
+                }
+
+                for (JobSeekerSave jobSeekerSave : jobSeekerSaveList) {
+                    if (Objects.equals(jobActivity.getJobPostId(), jobSeekerSave.getJob().getJobPostId())) {
+                        jobActivity.setIsSaved(true);
+                        saved = true;
+                        break;
+                    }
+                }
+                if (!exist){
+                    jobActivity.setIsActive(false);
+                }
+                if (!saved){
+                    jobActivity.setIsSaved(false);
+                }
+                model.addAttribute("jobPost", jobPost);
+            }
             }
         }
         model.addAttribute("user", currentUserProfile);

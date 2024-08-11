@@ -52,11 +52,11 @@ public class JobSeekerApply implements Serializable {
         this.id = id;
     }
 
-    public JobSeekerProfile getUserid() {
+    public JobSeekerProfile getUserId() {
         return userId;
     }
 
-    public void setUserid(JobSeekerProfile userid) {
+    public void setUserId(JobSeekerProfile userId) {
         this.userId = userId;
     }
 
