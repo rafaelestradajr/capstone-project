@@ -128,7 +128,7 @@ label > a :hover {
   border-right: none;
 }
 .primary-title {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 40px;

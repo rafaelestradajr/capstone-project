@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 public class JobSeekerSaveService {
 
-    private final JobSeekerApplyRepository jobSeekerApplyRepository;
+   // private final JobSeekerApplyRepository jobSeekerApplyRepository;
     private final JobSeekerSaveRepository jobSeekerSaveRepository;
 
-    public JobSeekerSaveService(JobSeekerApplyRepository jobSeekerApplyRepository, JobSeekerSaveRepository jobSeekerSaveRepository) {
-        this.jobSeekerApplyRepository = jobSeekerApplyRepository;
+    public JobSeekerSaveService( JobSeekerSaveRepository jobSeekerSaveRepository) {
+       // this.jobSeekerApplyRepository = jobSeekerApplyRepository;
         this.jobSeekerSaveRepository = jobSeekerSaveRepository;
     }
     public List<JobSeekerSave> getCandidatesJob(JobSeekerProfile userAccountId){
