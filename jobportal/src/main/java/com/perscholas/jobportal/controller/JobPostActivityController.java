@@ -266,4 +266,13 @@ model.addAttribute("jobPost", jobPost);
         model.addAttribute("user", usersService.getCurrentUserProfile());
         return "add-jobs";
     }
+
+    @PostMapping("dashboard/deleteJob/{id}")
+    public String deleteJob(@PathVariable("id") int id, Model model){
+
+        JobPostActivity jobPostActivity = jobPostActivityService.getOne(id);
+        model.addAttribute("jobPostActivity", jobPostActivity);
+        model.addAttribute("user", usersService.getCurrentUserProfile());
+        return "redirect:/dashboard/";
+    }
 }
