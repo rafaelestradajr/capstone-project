@@ -237,7 +237,7 @@
 
     <article>
 
-        <div class="box" sec:authorize="hasAuthority('Job Seeker')">
+        <div class="box" sec:authorize="hasAuthority('Job Seeker')" style="border: 2px solid #000;">
             <h1 class="primary-title">Candidate Dashboard</h1>
             <div class="inner">
                 <input id="job" class="radius-left" type="text" placeholder="Search for a job" name="job"
@@ -247,7 +247,7 @@
             </div>
         </div>
 
-        <div class="box" sec:authorize="hasAuthority('Recruiter')">
+        <div class="box" sec:authorize="hasAuthority('Recruiter')" style="border: 2px solid #000;">
             <h1 class="primary-title">Recruiter Dashboard</h1>
         </div>
         <div class="box mt-3">

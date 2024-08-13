@@ -124,7 +124,7 @@ label > a :hover {
   font-size: 1rem;
   width: 49%;
   height: 60px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 10px solid rgba(0, 0, 0, 0.15);
   border-right: none;
 }
 .primary-title {
@@ -264,7 +264,7 @@ label.large-label {
 .job-row {
   align-items: center;
   justify-content: space-around;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 10px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   align-items: center;
   padding: 8px;
